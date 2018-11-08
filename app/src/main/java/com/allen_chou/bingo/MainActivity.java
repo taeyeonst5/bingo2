@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements FirebaseAuth.Auth
     private ImageView avatar;
     private Group groupAvatar;
     int[] avatarsId = {R.drawable.avatar_0, R.drawable.avatar_1, R.drawable.avatar_2, R.drawable.avatar_3, R.drawable.avatar_4};
+    private Member member;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +47,26 @@ public class MainActivity extends AppCompatActivity implements FirebaseAuth.Auth
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                final EditText roomNameEdit = new EditText(MainActivity.this);
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("RoomName")
+                        .setMessage("please input your RoomName")
+                        .setView(roomNameEdit)
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        })
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                String roomName = roomNameEdit.getText().toString();
+                                Room room = new Room(roomName, member);
+                                FirebaseDatabase.getInstance().getReference("rooms")
+                                        .push().setValue(room);
+                            }
+                        }).show();
             }
         });
         findViews();
@@ -132,13 +151,17 @@ public class MainActivity extends AppCompatActivity implements FirebaseAuth.Auth
                     .child(uid)
                     .child("displayName")
                     .setValue(displayName);
+            FirebaseDatabase.getInstance().getReference("users")
+                    .child(uid)
+                    .child("uid")
+                    .setValue(uid);
 
             FirebaseDatabase.getInstance().getReference("users")
                     .child(uid)
                     .addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            Member member = dataSnapshot.getValue(Member.class);
+                            member = dataSnapshot.getValue(Member.class);
                             if (member.getNickName() == null) {
                                 showNickNameDialog(displayName);
                             } else {
@@ -177,8 +200,6 @@ public class MainActivity extends AppCompatActivity implements FirebaseAuth.Auth
                                 .setValue(nickNameEdit.getText().toString());
                     }
                 }).show();
-
-
     }
 
     @Override
