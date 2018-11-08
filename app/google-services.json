@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "224477802295",
+    "firebase_url": "https://allen-bingo.firebaseio.com",
+    "project_id": "allen-bingo",
+    "storage_bucket": "allen-bingo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224477802295:android:4357abaaf9262bf0",
+        "android_client_info": {
+          "package_name": "com.allen_chou.bingo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "224477802295-7a5k92uhrqdji3cjcpg62m98f7u11ugl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.allen_chou.bingo",
+            "certificate_hash": "15da46e30559f36986cfd75d6c75e27b049af971"
+          }
+        },
+        {
+          "client_id": "224477802295-45mrsafjr414qm034hm9upqn5o21rfmn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDmV4j5gwDXUWB1zw0ScAapWgEJb_gMD8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "224477802295-45mrsafjr414qm034hm9upqn5o21rfmn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
