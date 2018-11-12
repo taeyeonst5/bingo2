@@ -1,6 +1,13 @@
 package com.allen_chou.bingo;
 
 public class Room {
+    public static final int STATUS_INIT = 0;
+    public static final int STATUS_CREATED = 1;
+    public static final int STATUS_JOINED = 2;
+    public static final int STATUS_CREATOR_TRUN = 3;
+    public static final int STATUS_JOINNER_TRUN = 4;
+    public static final int STATUS_CREATOR_BINGO = 5;
+
     String id;
     String title;
     String uid;
@@ -8,7 +15,7 @@ public class Room {
     Member join;
     int status;
 
-    public Room(){
+    public Room() {
     }
 
     public Room(String title, Member init) {
