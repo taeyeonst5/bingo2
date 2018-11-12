@@ -135,6 +135,7 @@ public class MainActivity extends AppCompatActivity implements FirebaseAuth.Auth
                     public void onClick(View view) {
                         Intent bingo = new Intent(MainActivity.this, BingoActivity.class);
                         bingo.putExtra("ROOM_ID", model.getId());
+                        bingo.putExtra("ROOM_CREATOR", false);
                         startActivity(bingo);
                     }
                 });

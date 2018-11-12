@@ -2,11 +2,10 @@ package com.allen_chou.bingo;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.Button;
 
 public class NumberButton extends android.support.v7.widget.AppCompatButton {
     int number;
-    boolean selected;
+    boolean picked;
     int position;
 
     public NumberButton(Context context) {
@@ -25,14 +24,12 @@ public class NumberButton extends android.support.v7.widget.AppCompatButton {
         this.number = number;
     }
 
-    @Override
-    public boolean isSelected() {
-        return selected;
+    public boolean isPicked() {
+        return picked;
     }
 
-    @Override
-    public void setSelected(boolean selected) {
-        this.selected = selected;
+    public void setPicked(boolean picked) {
+        this.picked = picked;
     }
 
     public int getPosition() {
